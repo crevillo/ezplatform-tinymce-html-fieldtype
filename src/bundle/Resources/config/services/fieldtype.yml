@@ -1,0 +1,25 @@
+parameters:
+    ezplatform.fieldtype.tiny_mce_html_converter.identifier: 'eztinymcehtmlblock'
+
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Crevillo\EzTinyMCEHtml\FieldType\TinyMCEHtmlBlock\Type:
+        autoconfigure: false
+        autowire: true
+        public: true
+        parent: ezpublish.fieldType
+        tags:
+            - { name: ezpublish.fieldType, alias: '%ezplatform.fieldtype.tiny_mce_html_converter.identifier%' }
+
+    Crevillo\EzTinyMCEHtml\FieldType\Converter\TinyMCEHtmlBlockConverter:
+        tags:
+            - { name: ezpublish.storageEngine.legacy.converter, alias: '%ezplatform.fieldtype.tiny_mce_html_converter.identifier%' }
+
+    Crevillo\EzTinyMCEHtml\FieldType\Mapper\TinyMCEHtmlBlockFormMapper:
+        tags:
+            - { name: ez.fieldFormMapper.definition, fieldType: '%ezplatform.fieldtype.tiny_mce_html_converter.identifier%' }
+            - { name: ez.fieldFormMapper.value, fieldType: '%ezplatform.fieldtype.tiny_mce_html_converter.identifier%' }

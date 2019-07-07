@@ -1,0 +1,11 @@
+system:
+    default:
+        fielddefinition_edit_templates:
+            - { template: "@ezdesign/tiny_mce_html_block/field_types.html.twig", priority: 1 }
+
+        field_templates:
+            - { template: '@ezdesign/tiny_mce_html_block/content_fields.html.twig', priority: 1 }
+    admin_group:
+        admin_ui_forms:
+            content_edit_form_templates:
+                - { template: '@ezdesign/tiny_mce_html_block/content_edit_form_fields.html.twig', priority: 1 }

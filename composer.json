@@ -1,0 +1,29 @@
+{
+    "name": "crevillo/ezplatform-tinymce-html-fieldtype",
+    "description": "Provides an integration of TinyMCE with eZ Platform to be able to have html codes all the way",
+    "type": "bundle",
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "Carlos Revillo <crevillo@gmail.com>",
+            "homepage": "https://github.com/crevillo/ezplatform-tinymce-html-fieldtype"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Crevillo\\EzTinyMCEHtmlBundle\\": "src/bundle/",
+            "Crevillo\\EzTinyMCEHtml\\": "src/lib"
+        }
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "~2.15.0"
+    },
+    "scripts": {
+        "fix-cs": "@php ./vendor/bin/php-cs-fixer fix -v --show-progress=estimating"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

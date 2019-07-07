@@ -1,0 +1,4 @@
+imports:
+    - { resource: services/fieldtype.yml }
+    - { resource: services/form_types.yml }
+    - { resource: services/indexable_fieldtypes.yml }

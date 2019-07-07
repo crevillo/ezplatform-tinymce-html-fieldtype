@@ -1,0 +1,10 @@
+{% extends 'EzPublishCoreBundle::content_fields.html.twig' %}
+
+{% block eztinymcehtmlblock_field %}
+    {% spaceless %}
+        {% set field_value = field.value|raw %}
+        {{ block( 'simple_block_field' ) }}
+    {% endspaceless %}
+{% endblock %}
+
+

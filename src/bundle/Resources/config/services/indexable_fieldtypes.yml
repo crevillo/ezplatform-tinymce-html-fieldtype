@@ -1,0 +1,5 @@
+services:
+    ezpublish.fieldType.indexable.ezhtmlblock:
+        class: Crevillo\EzTinyMCEHtml\FieldType\TinyMCEHtmlBlock\SearchField
+        tags:
+            - {name: ezpublish.fieldType.indexable, alias: eztinymcehtmlblock}
