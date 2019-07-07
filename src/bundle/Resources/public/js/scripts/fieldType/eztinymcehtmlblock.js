@@ -24,7 +24,9 @@ import 'tinymce/plugins/contextmenu'
 import 'tinymce/plugins/paste'
 import 'tinymce/plugins/insertdatetime'
 
-(function(global, doc, eZ) {
+console.log('ho');
+(function() {
+    console.log('gga');
     tinymce.init({
         selector: '.ez-field-edit--eztinymcehtmlblock textarea',
         plugins: [
@@ -34,4 +36,4 @@ import 'tinymce/plugins/insertdatetime'
         ],
         toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
     })
-})(window, window.document, window.eZ);
+})();
