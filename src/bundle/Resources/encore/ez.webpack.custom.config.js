@@ -4,8 +4,8 @@ const path = require('path');
 
 Encore.addPlugin(new copyWebpackPlugin([
     {
-        from: path.resolve(__dirname, '../../../../../node_modules/tinymce/skins'),
-        to: path.resolve(__dirname, '../../../../../web/assets/ezplatform/build/skins')
+        from: path.resolve(__dirname, '../../../../../../../node_modules/tinymce/skins'),
+        to: path.resolve(__dirname, '../../../../../../../web/assets/ezplatform/build/skins')
     }
 ]));
 
