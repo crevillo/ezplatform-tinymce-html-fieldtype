@@ -24,9 +24,7 @@ import 'tinymce/plugins/contextmenu'
 import 'tinymce/plugins/paste'
 import 'tinymce/plugins/insertdatetime'
 
-console.log('ho');
 (function() {
-    console.log('gga');
     tinymce.init({
         selector: '.ez-field-edit--eztinymcehtmlblock textarea',
         plugins: [
