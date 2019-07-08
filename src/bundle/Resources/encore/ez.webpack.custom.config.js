@@ -1,12 +1,17 @@
 const Encore = require('@symfony/webpack-encore');
-const copyWebpackPlugin = require('copy-webpack-plugin');
-const path = require('path');
 
-Encore.addPlugin(new copyWebpackPlugin([
+Encore
+  .setOutputPath('web/assets/ezplatform/build')
+  .setPublicPath('/assets/ezplatform/build')
+  .copyFiles(
     {
-        from: path.resolve(__dirname, '../../../../../../../node_modules/tinymce/skins'),
-        to: path.resolve(__dirname, '../../../../../../../web/assets/ezplatform/build/skins')
+      from: './node_modules/tinymce/skins/',
+      to: './skins/[path][name].[ext]'
     }
-]));
+);
 
-module.exports = Encore.getWebpackConfig();
+customConfig = Encore.getWebpackConfig();
+
+customConfig.name = 'tinymcehtml-fieldtype';
+
+module.exports = customConfig;
