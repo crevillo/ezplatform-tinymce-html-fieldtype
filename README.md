@@ -55,6 +55,35 @@ Create a content of this type and play with TinyMCE!.
 * can the install process be improved?
 * translations
 
+## customization
+
+before adding proper settings for config the buttons you want or the plugins there is a quick
+way to do this from your bundle. 
+
+ 
+ * If not already created, create a folder called `Resources/public/js/scripts/fieldType`
+ * Copy the `vendor/crevillo/ezplatform-tinymce-html-fieldtype/src/bundle/Resources/public/js/scripts/fieldType/eztinymcehtmlblock.js` to that folder
+ * Create a `Resources/encore` folder in one your bundle (let's suppose AppBundle here). 
+ * Add a file called `ez.config.manager.js` to this folder and with this content 
+ ```javascript
+ const path = require('path');
+ module.exports = (eZConfig, eZConfigManager) => {
+     eZConfigManager.replace({
+         eZConfig,
+         entryName: 'ezplatform-admin-ui-content-edit-parts-js',
+         itemToReplace: path.resolve(__dirname, '../../../../vendor/crevillo/ezplatform-tinymce-html-fieldtype/src/bundle/Resources/public/js/scripts/fieldType/eztinymcehtmlblock.js'),
+         newItem: path.resolve(__dirname, '../public/js/scripts/fieldType/eztinymcehtmlblock.js'),
+     });
+ };
+```
+We are tell webpack that for that `entryName` replace the file provided with this packabe with the custom one.
+
+Now you only need to modify the `src/AppBundle/Resources/public/js/scripts/fieldType/eztinymcehtmlblock.js`
+You can define wich buttons, toolsbars or whatever configuration that tinyMCE supports. 
+
+Please note that this configuration will be applied globally to all the fields of this type. 
+Improves may come in the future :).     
+
 ## ideas for the future
 
 * Ability to configure buttons, menus etc.
