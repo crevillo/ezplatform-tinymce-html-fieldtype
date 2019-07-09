@@ -60,4 +60,13 @@ Create a content of this type and play with TinyMCE!.
 * Ability to configure buttons, menus etc.
 * Could we use CKEditor here or will it conflict with the alloy editor used in rich text? 
 Could we combine them?
-    
+
+## disclaimer
+
+Please take note that this fieldtype does not intend to replace the ezrichtext provided with eZ. 
+In fact, with this package you will can to add any kind page but you'll miss all the goodies that
+RichText offers. For example, there's no connection with the browse window to select something for linking.
+You won't can work with custom tags either. Pure html with everything that implies.  
+
+Anyway, we could think in adding these features. If you want to contribute you're more than
+welcome!     
