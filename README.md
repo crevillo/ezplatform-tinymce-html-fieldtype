@@ -81,6 +81,9 @@ We are tell webpack that for that `entryName` replace the file provided with thi
 Now you only need to modify the `src/AppBundle/Resources/public/js/scripts/fieldType/eztinymcehtmlblock.js`
 You can define wich buttons, toolsbars or whatever configuration that tinyMCE supports. 
 
+For every change you want, you will need to recompile your assets with 
+`./bin/console ezplatform:encore:compile`
+
 Please note that this configuration will be applied globally to all the fields of this type. 
 Improves may come in the future :).     
 
