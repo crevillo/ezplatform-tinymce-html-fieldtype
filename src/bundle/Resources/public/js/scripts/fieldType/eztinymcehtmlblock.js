@@ -33,6 +33,6 @@ import 'tinymce/plugins/insertdatetime'
             "insertdatetime media table paste"
         ],
         toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-        images_upload_url:
+        images_upload_url: Routing.generate('tinymce_upload_image')
     })
 })();
