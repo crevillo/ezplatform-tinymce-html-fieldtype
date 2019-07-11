@@ -20,6 +20,12 @@ class CrevilloEzTinyMCEHtmlExtension extends Extension implements PrependExtensi
         );
 
         $loader->load('services.yml');
+
+        $configuration = new Configuration();
+
+        $config = $this->processConfiguration($configuration, $configs);
+
+        $container->setParameter('tiny_mce.images_parent_location_id', $config['images_parent_location_id']);
     }
 
     /**

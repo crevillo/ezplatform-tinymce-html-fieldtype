@@ -2,6 +2,7 @@
 
 namespace Crevillo\EzTinyMCEHtmlBundle\Controller;
 
+use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Bundle\EzPublishCoreBundle\Imagine\Cache\AliasGeneratorDecorator;
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\ContentTypeService;
@@ -14,7 +15,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class UploadController
+class UploadController extends Controller
 {
     private $contentTypeService;
 
@@ -48,6 +49,7 @@ class UploadController
     {
         $file = reset($request->files);
         $lang = current($this->configResolver->getParameter('languages'));
+        $imagesParentLocationId = $this->getParameter('tiny_mce.images_parent_location_id');
 
         $contentType = $this->contentTypeService->loadContentTypeByIdentifier("image");
         $contentCreateStruct = $this->contentService->newContentCreateStruct($contentType, $lang);
@@ -57,7 +59,7 @@ class UploadController
         $imageName = $uploadedFile->getClientOriginalName();
 
         $contentCreateStruct->setField( 'name', $imageName);
-      
+
         // set image file field
         $value = new ImageValue(
             array(
@@ -73,7 +75,7 @@ class UploadController
         $draft = $this->contentService->createContent(
             $contentCreateStruct,
             array(
-                $this->locationService->newLocationCreateStruct(51)
+                $this->locationService->newLocationCreateStruct($imagesParentLocationId)
             )
         );
         $content = $this->contentService->publishVersion($draft->versionInfo);
@@ -82,7 +84,7 @@ class UploadController
             'location' => $this->variationHandler->getVariation(
                 $content->getField('image'),
                 $content->getVersionInfo(),
-                'medium'
+                'original'
             )->uri
         ]);
     }

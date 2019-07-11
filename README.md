@@ -76,7 +76,7 @@ way to do this from your bundle.
      });
  };
 ```
-We are tell webpack that for that `entryName` replace the file provided with this packabe with the custom one.
+We are telling webpack that for that `entryName` replace the file provided with this packabe with the custom one.
 
 Now you only need to modify the `src/AppBundle/Resources/public/js/scripts/fieldType/eztinymcehtmlblock.js`
 You can define wich buttons, toolsbars or whatever configuration that tinyMCE supports. 
@@ -85,7 +85,34 @@ For every change you want, you will need to recompile your assets with
 `./bin/console ezplatform:encore:compile`
 
 Please note that this configuration will be applied globally to all the fields of this type. 
-Improves may come in the future :).     
+Improves may come in the future :).
+
+## uploading images from tinymce
+
+From version 0.7.0 it's possible to upload images from the tinymce editor. 
+The bundle provides a controller to take care all the operations. 
+
+eZ will create a content of type image as a child of the location with id = 51. 
+That's the `Media > Images` folder in a eZ Platform common installation. 
+
+To enable this possibility you MUST modify your `app/config/routing.yml` to load
+the routes this bundle provides. 
+Example:
+```yaml
+_ez_tinymce_html_fieldtype_routes:
+    resource: '@CrevilloEzTinyMCEHtmlBundle/Resources/config/routing.yml'
+``` 
+
+Further more, you can configure the parent location of the images that will be created. 
+For that, modify your `app/config/configy.yml` adding this
+
+```yaml
+crevillo_ez_tiny_mce_html:
+    images_parent_location_id: 51 # media > images folder. change to whatever you want
+```
+
+The controller will return the `original` variation of the uploaded image. This will 
+be configurable in the future. 
 
 ## ideas for the future
 
