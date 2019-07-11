@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Crevillo\EzTinyMCEHtmlBundle\Controller\UploadController:
+        tags: ['controller.service_arguments']
+        arguments:
+            $IOService: '@ezpublish.fieldType.ezimage.io_service.published'

@@ -32,6 +32,7 @@ import 'tinymce/plugins/insertdatetime'
             "searchreplace visualblocks code fullscreen",
             "insertdatetime media table paste"
         ],
-        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        images_upload_url:
     })
 })();

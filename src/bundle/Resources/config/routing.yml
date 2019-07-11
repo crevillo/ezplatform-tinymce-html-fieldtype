@@ -1,0 +1,5 @@
+tinymce_upload_image:
+    path: /tinymce/upload/image
+    defaults: {_controller: CrevilloEzTinyMCEHtmlBundle:Upload:uploadImage}
+    options:
+        expose: true
