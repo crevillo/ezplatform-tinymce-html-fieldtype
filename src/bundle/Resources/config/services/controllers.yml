@@ -7,4 +7,9 @@ services:
     Crevillo\EzTinyMCEHtmlBundle\Controller\UploadController:
         tags: ['controller.service_arguments']
         arguments:
-            $IOService: '@ezpublish.fieldType.ezimage.io_service.published'
+            - '@ezpublish.api.service.content_type'
+            - '@ezpublish.api.service.content'
+            - '@ezpublish.api.service.location'
+            - '@ezpublish.core.io.service'
+            - '@ezpublish.image_alias.imagine.cache.alias_generator_decorator'
+            - '@ezpublish.config.resolver'
