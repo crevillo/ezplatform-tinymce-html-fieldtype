@@ -3,11 +3,12 @@
 namespace Crevillo\EzTinyMCEHtml\FieldType\Mapper;
 
 use Crevillo\EzTinyMCEHtml\Form\Type\FieldType\TinyMCEHtmlBlockFieldType;
+use EzSystems\EzPlatformAdminUi\FieldType\Mapper\TextBlockFormMapper;
+use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use EzSystems\RepositoryForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\FieldType\Mapper\TextBlockFormMapper;
 use Symfony\Component\Form\FormInterface;
 
-class TinyMCEHtmlBlockFormMapper extends TextBlockFormMapper
+class TinyMCEHtmlBlockFormMapper extends TextBlockFormMapper implements FieldValueFormMapperInterface
 {
     public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
     {
