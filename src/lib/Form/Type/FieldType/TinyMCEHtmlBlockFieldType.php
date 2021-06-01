@@ -2,8 +2,8 @@
 
 namespace Crevillo\EzTinyMCEHtml\Form\Type\FieldType;
 
-use EzSystems\RepositoryForms\FieldType\DataTransformer\FieldValueTransformer;
-use EzSystems\RepositoryForms\Form\Type\FieldType\TextBlockFieldType;
+use EzSystems\EzPlatformContentForms\FieldType\DataTransformer\FieldValueTransformer;
+use EzSystems\EzPlatformContentForms\Form\Type\FieldType\TextBlockFieldType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
